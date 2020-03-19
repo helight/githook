@@ -7,9 +7,16 @@ import (
 	"githook/webhook"
 )
 
+func test(w http.ResponseWriter, r *http.Request) {
+	log.Printf("xxxxxxxx: %s", r.URL.Path)
+	w.Write([]byte(r.URL.Path))
+}
+
 func main() {
 	// To verify webhook's payload, set secret by SetSecret().
 	webhook.SetSecret([]byte("abcdefgh"))
+
+	http.HandleFunc("/test", test)
 
 	// Add a HandlerFunc to process webhook.
 	http.HandleFunc("/", webhook.HandlePush(func(ev *webhook.Event) {
