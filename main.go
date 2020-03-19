@@ -8,7 +8,7 @@ import (
 )
 
 func test(w http.ResponseWriter, r *http.Request) {
-	log.Printf("xxxxxxxx: %s", r.URL.Path)
+	log.Printf("xxxxxx: %s", r.URL.Path)
 	w.Write([]byte(r.URL.Path))
 }
 
