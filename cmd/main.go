@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"githook/webhook"
+	"githook/pkg/webhook"
 )
 
 func test(w http.ResponseWriter, r *http.Request) {
